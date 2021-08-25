@@ -1,13 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
 
-const Question = (title, info) => {
-    return (
-        <div>
-            <h4>{title}</h4>
-            <p>{info}</p>
-        </div>
-    )
-}
+const Question = ({ title, info }) => {
+  const [show, setShow] = useState(false);
 
-export default Question
+  return (
+    <div className="question">
+      <header className="title">
+        <h4>{title}</h4>
+        <button onClick={() => setShow(!show)}>{show ? "-" : "+"}</button>
+      </header>
+      <p>{show && info}</p>
+    </div>
+  );
+};
 
+export default Question;

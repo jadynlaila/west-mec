@@ -21,7 +21,7 @@
 .container{
     width: 90vw;
     margin: 5rem 0;
-    width: 900px;
+    max-width: $fixed-width;
     background: $white;
     border-radius: $radius;
     padding: 1.5rem 2rem;
@@ -37,6 +37,7 @@
         width: 45%;
         border-color: transparent;
         background: $primary-4;
+        margin: 2rem auto 0 auto;
         text-transform: capitalize;
         font-size: 1.2rem;
         padding: 0.5rem 0;
@@ -69,4 +70,10 @@
     @include box(20rem, 0.25rem );
     @include center-auto;
     background: $primary-4;
+}
+
+nav{
+    background: $white;
+    box-shadow: $light-shadow;
+    height: 15rem;
 }

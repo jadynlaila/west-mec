@@ -1,0 +1,33 @@
+@use '../util/mixins' as *;
+@use '../util/variables' as *;
+@use '../themes/defaultTheme' as *;
+
+.question {
+  border: 1px solid $grey-9;
+  box-shadow: $light-shadow;
+  margin-bottom: 1rem;
+  padding: 1rem 1.5rem;
+  vertical-align: middle;
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+
+    h4 {
+      font-weight: bold;
+      margin: 0;
+      align-self: center;
+      position: relative;
+      top: 10px;
+    }
+
+    button {
+      width: 3rem;
+      padding: 0.25rem;
+      background: $primary-6;
+      position: relative;
+      top: 10px;
+    }
+  }
+}

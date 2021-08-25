@@ -1,0 +1,12 @@
+@use '../util/mixins' as *;
+@use '../util/variables' as *;
+@use '../themes/defaultTheme' as *;
+
+
+.accordion{
+    @include center-auto;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+}
+
+//create @ media that makes title go on top by getting rid of display grid and template columns

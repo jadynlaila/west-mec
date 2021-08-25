@@ -6,9 +6,9 @@ function App() {
   console.log(questions);
 
   return (
-    <>
+    
     <Accordion questions={questions}/>
-    </>
+    
   );
 }
 
