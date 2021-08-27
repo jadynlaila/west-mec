@@ -77,6 +77,19 @@
 //   }
 // }
 
+
+@mixin flex-space-bet{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+@mixin flex-space-ar{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
 //positioning helpers
 
 @mixin position($position, $args) {

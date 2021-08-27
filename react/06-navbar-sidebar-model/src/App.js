@@ -1,17 +1,14 @@
 import { Route, Switch } from "react-router-dom";
+import Navbar from "./Components/Navbar";
+import { links } from "./util/consts";
 import Home from "./Pages/Home";
-import About from "./Pages/About";
-import Cart from "./Pages/Cart";
-import Products from "./Pages/Products";
-import Error from "./Pages/Error";
-import Navbar from './Components/Navbar';
 
 function App() {
   return (
     <>
-      <Navbar/>
+      <Navbar />
       <Switch>
-        <Route exact path="/">
+        {/* <Route exact path="/">
           <Home />
         </Route>
 
@@ -29,7 +26,19 @@ function App() {
 
         <Route path="*">
           <Error />
+        </Route> */}
+        <Route exact path="/">
+          <Home />
         </Route>
+
+        {links
+          .filter((link) => link.text !== "Home")
+          .map((link) => {
+            const { id, url, page } = link;
+            return <Route key={id} path={url}>
+                {page}
+              </Route>
+          })}
       </Switch>
     </>
   );

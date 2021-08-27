@@ -3,34 +3,52 @@ import { Link } from "react-router-dom";
 import { links, socials } from "../util/consts";
 import { useState } from "react";
 import { FaBars } from "react-icons/fa";
+import logo from '../util/logo.svg';
 
 const Navbar = () => {
   const [showLinks, setShowLinks] = useState(false);
+
   const toggleLinks = () => {
     setShowLinks(!showLinks);
   };
+
+  const checkSize = () => {
+    if (window.innerWidth >= 768) {
+      setShowLinks(true);
+    }
+    if(window.innerWidth < 768){
+      setShowLinks(false);
+    }
+  }
+
+  useEffect(() => {
+    checkSize();
+    window.addEventListener('resize', checkSize);
+  }, [])
+
   return (
-    <nav>
+    <nav className="navbar">
       <div className="nav-center">
         <div className="nav-header">
-          <img src="" alt="logo" className="logo" />
+          <img src={logo} alt="logo" className="logo" />
           <button className="nav-toggle" onClick={toggleLinks}>
               <FaBars/>
           </button>
         </div>
-        <div className="links-container">
+        <div className={`links-container ${showLinks && 'show'}`}>
           <ul className="links">
-            {links.map((link) => {
+            {links
+            .filter((link ) => link.text !== "Error").map((link) => {
               const { id, url, text } = link;
               return (
-                <li key="id">
+                <li key={id}>
                   <Link to={url}>{text}</Link>
                 </li>
               );
             })}
           </ul>
         </div>
-        <ul className="social-icons">
+        <ul className={`social-icons ${showLinks && "show"}`}>
             {socials.map((social) => {
                 const {id, url, icon} = social;
                 return(
