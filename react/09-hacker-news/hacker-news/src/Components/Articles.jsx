@@ -1,16 +1,25 @@
-import React from "react";
-import { useArticleContext } from "../util/useContext";
-
-const url = "https://hn.algolia.com/api/v1/search?query=";
+import React, { useState, useEffect } from "react";
+import { useAppContext } from "../util/context";
 
 const Articles = () => {
-  const { articles, loading } = useArticleContext();
-  if (loading) {
-    return <div className="loading">loading</div>;
-  }
-  if (!loading) {
-    return <div className="articles">working</div>;
-  }
+  const { hits, loading, removeStory } = useAppContext();
+  console.log(hits, loading, removeStory);
+  return (
+    <div>
+      {hits.map((hit, id) => {
+        const { title, url} = hit;
+        return (
+          <div key={id}>
+            <h4 className="title">{title}</h4>
+            <p className="readMore">{url}</p>
+            <p className="remove" onClick={(id) => removeStory()}>
+              remove
+            </p>
+          </div>
+        );
+      })}
+    </div>
+  );
 };
 
 export default Articles;

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { AppProvider } from './util/useContext'
+import { AppProvider } from './util/context'
 
 
 ReactDOM.render(
