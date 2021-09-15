@@ -1,0 +1,20 @@
+@use '../util/mixins' as *;
+@use '../util/variables' as *;
+@use '../themes/defaultTheme' as *;
+
+.articles{
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: auto auto;
+    .article{
+        .title{
+
+        }
+        .readMore{
+
+        }
+        .remove{
+
+        }
+    }
+}

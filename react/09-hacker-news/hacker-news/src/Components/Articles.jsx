@@ -3,18 +3,26 @@ import { useAppContext } from "../util/context";
 
 const Articles = () => {
   const { hits, loading, removeStory } = useAppContext();
-  console.log(hits, loading, removeStory);
+  if(loading){
+    return(
+      <div className="loading">loading</div>
+    )
+  }
   return (
-    <div>
-      {hits.map((hit, id) => {
-        const { title, url} = hit;
+  
+    <div className="articles">
+      {hits.map((hit) => {
+        const { objectID: id, title, url, points, author, num_comments} = hit;
         return (
-          <div key={id}>
+          <div key={id} className="article">
             <h4 className="title">{title}</h4>
-            <p className="readMore">{url}</p>
-            <p className="remove" onClick={(id) => removeStory()}>
+            <p className="info">{points} points by <span>{author}</span> | {num_comments} comments</p>
+            <div>
+              <a href={url} className="readMore" target='_blank' rel="noopener noreferrer">read more</a>
+            </div>
+            <button className="remove" onClick={() => removeStory(id)}>
               remove
-            </p>
+            </button>
           </div>
         );
       })}

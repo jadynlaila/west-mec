@@ -1,9 +1,17 @@
-import React from 'react'
+import React from 'react';
+import { useAppContext } from '../util/context';
 
 const Pagination = () => {
+    const {loading, page, nbPages, handlePage } = useAppContext();
     return (
-        <div>
-            pagination here
+        <div className="btn-container">
+            <button disabled={loading} className="btn" onClick={() => handlePage('dec')}>
+                prev
+            </button>
+            <p>{page + 1} of {nbPages}</p>
+            <button disabled={loading} className="btn" onClick={() => handlePage('inc')}>
+                next
+            </button>
         </div>
     )
 }
