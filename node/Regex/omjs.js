@@ -105,7 +105,7 @@ console.log(lat);
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
 
 
-let reBefore = /( [a-zA-Z]{1,7}\.?)\]/g;
+let reBefore = /([a-zA-Z]{1,7}\.?)\]/g;
 let before = reBefore.exec(str);
 while(before){
     console.log(before[1]);
